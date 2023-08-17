@@ -728,7 +728,6 @@ async function startWatcher(opts: SetupOpts) {
           matchers?: MiddlewareMatcher[]
         }
       | undefined
-    hasAppNotFound?: boolean
     interceptionRoutes?: ReturnType<
       typeof import('./filesystem').buildCustomRoute
     >[]
@@ -810,7 +809,6 @@ async function startWatcher(opts: SetupOpts) {
       let envChange = false
       let tsconfigChange = false
       let conflictingPageChange = 0
-      let hasRootAppNotFound = true
 
       const { appFiles, pageFiles } = opts.fsChecker
 
@@ -1181,7 +1179,6 @@ async function startWatcher(opts: SetupOpts) {
         : undefined
 
       await propagateToWorkers('middleware', serverFields.middleware)
-      serverFields.hasAppNotFound = hasRootAppNotFound
 
       opts.fsChecker.middlewareMatcher = serverFields.middleware?.matchers
         ? getMiddlewareRouteMatcher(serverFields.middleware?.matchers)
