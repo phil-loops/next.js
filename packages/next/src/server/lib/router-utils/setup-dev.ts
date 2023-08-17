@@ -812,7 +812,7 @@ async function startWatcher(opts: SetupOpts) {
       let envChange = false
       let tsconfigChange = false
       let conflictingPageChange = 0
-      let hasRootAppNotFound = true // false
+      let hasRootAppNotFound = false
 
       const { appFiles, pageFiles } = opts.fsChecker
 
