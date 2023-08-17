@@ -452,8 +452,6 @@ async function startWatcher(opts: SetupOpts) {
           ) => {
             let page = ensureOpts.match?.definition?.pathname ?? ensureOpts.page
 
-            console.log('ensure Page', page)
-
             async function loadPartialManifest<T>(
               name: string,
               pageName: string,
